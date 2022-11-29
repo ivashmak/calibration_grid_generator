@@ -1,0 +1,69 @@
+NAME: "demo"
+NUM_SAMPLES: 1 # number of repetition of running the same configuration file
+SEED : 1 # seed or random generator
+BOARD:
+  WIDTH : 7
+  HEIGHT : 10
+  SQUARE_LEN : 0.07
+  T_LIMIT : [[-2.2,2.2], [-1.5,1.5], [-0.10,0.10]]
+  EULER_LIMIT : [[-30, 30], [-30, 30], [-30, 30]]
+  T_ORIGIN : null
+MAX_FRAMES: 25
+MAX_RANDOM_ITERS : 100000
+MIN_FRAMES_PER_CAM: 1
+
+NUM_CAMERAS: 5 # specify number of cameras
+CAMERA1:
+  FX: [1000, 1000] # specify the range of focal length could be [focal_min, focal_max] (e.g., [900, 1200]), deterministic configuration is [focal, focal])
+  FY_DEVIATION : null # deviation of y-focal length with respect to x-focal length, is either None (that is fx=fy) or value such that fy = [fx*(1-fy_deviation/100), fx*(1+fy_deviation/100)]
+  IMG_WIDTH: 1200
+  IMG_HEIGHT: 1000
+  EULER_LIMIT: null
+  T_LIMIT: null
+  NOISE_SCALE: 3.0e-4 # scale of Gaussian noise
+  FISHEYE: False
+  DIST: [[-3.2e-1,-3.2e-1], [0,0], [0,0], [0,0], [0,0]] # distortion parameters, random [min_range, max_range], deterministic: [range, range]
+
+CAMERA2:
+  FX: [1050, 1050]
+  FY_DEVIATION : null
+  IMG_WIDTH: 1300
+  IMG_HEIGHT: 1080
+  EULER_LIMIT: [[13,13], [4,4], [-7,-7]] # relative w.r.t. camera 1 euler angles limits in degrees, xyz convention, see more in utils.py
+  T_LIMIT: [[-0.65,-0.65], [0.25, 0.25], [-0.1, -0.1]] # relative w.r.t. camera 1 translation in meters
+  NOISE_SCALE: 3.0e-4
+  FISHEYE: False
+  DIST: [[-3.0e-1,-3.0e-1], [0,0], [0,0], [0,0], [0,0]]
+
+CAMERA3:
+  FX: [1200, 1200]
+  FY_DEVIATION : null
+  IMG_WIDTH: 1700
+  IMG_HEIGHT: 1400
+  EULER_LIMIT: [[8,8], [1,1], [-3,-3]]
+  T_LIMIT: [[0.2,0.2], [-0.1, -0.1], [-0.1, -0.1]]
+  NOISE_SCALE: 3.0e-4
+  FISHEYE: False
+  DIST: [[-2.0e-1,-2.0e-1], [0,0], [0,0], [0,0], [0,0]]
+
+CAMERA4:
+  FX: [800, 800]
+  FY_DEVIATION : null
+  IMG_WIDTH: 900
+  IMG_HEIGHT: 700
+  EULER_LIMIT: [[-10,-10], [2,2], [3,3]]
+  T_LIMIT: [[-0.2,-0.2], [0.15, 0.15], [0.1, 0.1]]
+  NOISE_SCALE: 3.0e-4
+  FISHEYE: False
+  DIST: [[-2.5e-1,-2.5e-1], [0,0], [0,0], [0,0], [0,0]]
+
+CAMERA5:
+  FX: [1100, 1100]
+  FY_DEVIATION : null
+  IMG_WIDTH: 1300
+  IMG_HEIGHT: 950
+  EULER_LIMIT: [[-9,-9], [-3,-3], [4,4]]
+  T_LIMIT: [[-0.4,-0.4], [-0.05, -0.05], [-0.15, -0.15]]
+  NOISE_SCALE: 3.0e-4
+  FISHEYE: False
+  DIST: [[-1.9e-1,-1.9e-1], [0,0], [0,0], [0,0], [0,0]]
